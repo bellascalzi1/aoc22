@@ -9,6 +9,7 @@ int lineNo = 0;
 // Keep track of characters that are present in each set of 3 lines
 Dictionary<char,int> dict = new Dictionary<char, int>();
 
+// Reading lines in one at a time because we need to keep track of every 3rd line
 using(StreamReader sr = new StreamReader("input.txt")) {
     string line;
     while((line = sr.ReadLine()) != null) {
@@ -27,7 +28,6 @@ using(StreamReader sr = new StreamReader("input.txt")) {
         if(lineNo == 3) {
             // Find whick key had value 3
             char val = dict.FirstOrDefault(x => x.Value == 3).Key;
-            Console.WriteLine($"Value is {val}");
             
             score += getPriority(val);
             dict.Clear();

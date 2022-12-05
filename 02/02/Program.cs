@@ -1,6 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
-// X = Lose, Y = Draw, Z = Win
 
+// X = Lose, Y = Draw, Z = Win
+// Same as in part 1 but updated to also work with outcome needed
+// 0 = Lose, 1 = Draw, 2 = Win
 int getMoveValue(char move) {
     switch(move) {
         // Rock
@@ -20,9 +22,8 @@ int getMoveValue(char move) {
     }
 }
 
-// Get the move needed for the outcome
+// Get the move needed for the outcome. I wonder if there is an easier way to do this other than a nested switch?
 int getMoveNeeded(int opponentMove, int outcomeNeeded) {
-    // Console.WriteLine($" MOVE NEEDED Opp Move {opponentMove} Outcome Needed {outcomeNeeded}");
     switch(opponentMove) {
         // Rock
         case 0:
@@ -81,10 +82,10 @@ int getMoveNeeded(int opponentMove, int outcomeNeeded) {
             }
         default:
             return -1;
-            
     }
 }
 
+// Again used for debugging
 string getMoveString(char move) {
     switch(move) {
         case 'A':

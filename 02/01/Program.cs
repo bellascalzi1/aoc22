@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+// Returns index into the score matrix corresponding to a particular move
 int getMoveValue(char move) {
     switch(move) {
         case 'A':
@@ -16,6 +17,7 @@ int getMoveValue(char move) {
     }
 }
 
+// Get the move associated with a particular character, used for debugging
 string getMoveString(char move) {
     switch(move) {
         case 'A':
@@ -44,12 +46,12 @@ foreach(string line in lines) {
     char yourMove = char.Parse(moves[1]);
     char opponentMove = char.Parse(moves[0]);
     
-    // Get each move char's index in the win matrix
+    // Get each move char's index in the score matrix
     int yourMoveValue = getMoveValue(yourMove);
     int opponentMoveValue = getMoveValue(opponentMove);
 
     score += scoreMatrix[opponentMoveValue,yourMoveValue];
-    Console.WriteLine($"Opp Move: {getMoveString(opponentMove)} Your Move: {getMoveString(yourMove)} Index {opponentMoveValue} {yourMoveValue} = {scoreMatrix[opponentMoveValue, yourMoveValue]}");
+    // Console.WriteLine($"Opp Move: {getMoveString(opponentMove)} Your Move: {getMoveString(yourMove)} Index {opponentMoveValue} {yourMoveValue} = {scoreMatrix[opponentMoveValue, yourMoveValue]}");
 }
 
 Console.WriteLine(score);
